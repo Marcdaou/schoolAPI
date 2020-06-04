@@ -33,7 +33,7 @@ namespace AppDist.Controllers
 
         }
 
-        [HttpGet]
+                [HttpPost]
         public async Task<IActionResult> authenticate([FromBody] Admin admin)
         {
             // Console.WriteLine(admin.Email);
@@ -62,7 +62,7 @@ namespace AppDist.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(tokenHandler.WriteToken(token));
+            return Ok("{\"token\":\"" + tokenHandler.WriteToken(token) + "\"}");
             //}
             //   return NotFound();
         }
